@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>순간시테스트</title>
+    <link rel="stylesheet" type="text/css" href="reset.css" />
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <span id="gameTime">00:00:00</span>
+      <button id="stBtn">게임시작</button>
+    </header>
+    <container>
+      <table id="playboard">
+        <tr>
+          <td class="nums">1</td>
+          <td class="nums">2</td>
+          <td class="nums">3</td>
+          <td class="nums">4</td>
+          <td class="nums">5</td>
+        </tr>
+        <tr>
+          <td class="nums">6</td>
+          <td class="nums">7</td>
+          <td class="nums">8</td>
+          <td class="nums">9</td>
+          <td class="nums">10</td>
+        </tr>
+        <tr>
+          <td class="nums">11</td>
+          <td class="nums">12</td>
+          <td class="nums">13</td>
+          <td class="nums">14</td>
+          <td class="nums">15</td>
+        </tr>
+        <tr>
+          <td class="nums">16</td>
+          <td class="nums">17</td>
+          <td class="nums">18</td>
+          <td class="nums">19</td>
+          <td class="nums">20</td>
+        </tr>
+        <tr>
+          <td class="nums">21</td>
+          <td class="nums">22</td>
+          <td class="nums">23</td>
+          <td class="nums">24</td>
+          <td class="nums">25</td>
+        </tr>
+      </table>
+
+      <div id="statusBoard">
+        <div id="bestTime">
+          <span class="title">BEST TIME</span>
+          <span class="timeList"> 00:00:00 </span>
+        </div>
+        <div id="average">
+          <span class="title">AVERAGE</span>
+          <span class="timeList"> 00:00:00 </span>
+        </div>
+        <div id="history">
+          <span class="title">HISTORY</span>
+          <span class="timeList"> 00:00:00 </span>
+        </div>
+      </div>
+    </container>
+
+    <div>
+      <button id="resetBtn">리셋하기</button>
+    </div>
+
+    <footer>
+      <span>made by <a href="https://github.com/maltepoo" target="_blank">@maltepoo</a></span>
+    </footer>
+    <script src="./script.js"></script>
+  </body>
+</html>
