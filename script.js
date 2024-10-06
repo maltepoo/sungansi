@@ -72,6 +72,11 @@ const validateNums = (e) => {
 
   if (NEXT === 26 || arr.length === 25) {
     gameEnd();
+
+    alert("게임종료!");
+    recordHistory();
+    recordAverageTime();
+    recordBestTime();
   }
 };
 
@@ -87,10 +92,6 @@ const gameStart = () => {
 const gameEnd = () => {
   console.log("== GAME END ==");
 
-  recordHistory();
-  recordAverageTime();
-  recordBestTime();
-
   NEXT = 1;
   arr = [];
   milliseconds = 0;
@@ -104,8 +105,6 @@ const gameEnd = () => {
 };
 
 const recordHistory = () => {
-  alert("게임종료!");
-
   HISTORY_ARR.push({
     time_stamp: gameTime.innerText,
     ms: milliseconds,
