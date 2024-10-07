@@ -56,7 +56,8 @@ const recordTime = () => {
 
 const validateNums = (e) => {
   const num = e.target.dataset.num;
-  // for test : const num = e.target.innerText;
+  // for test : 
+  // const num = e.target.innerText;
 
   if (num === undefined) {
     return;
@@ -77,12 +78,20 @@ const validateNums = (e) => {
     recordHistory();
     recordAverageTime();
     recordBestTime();
+    resetData();
   }
 };
+
+const resetData = () => {
+  NEXT = 1;
+  arr = [];
+  milliseconds = 0;
+}
 
 const gameStart = () => {
   console.log("== GAME START ==");
 
+  resetData();
   changeNumbers();
   requestAnimationFrame(recordTime);
 
@@ -91,10 +100,7 @@ const gameStart = () => {
 
 const gameEnd = () => {
   console.log("== GAME END ==");
-
-  NEXT = 1;
-  arr = [];
-  milliseconds = 0;
+  
   cancelAnimationFrame(recordTime);
 
   nums.forEach((n) => {
@@ -121,13 +127,15 @@ const recordHistory = () => {
 
 const recordBestTime = () => {
   const SORTED = HISTORY_ARR.slice().sort((a, b) => a.ms - b.ms);
+  // console.log("SORTED", SORTED);
   bestTime.querySelector(".timeList").innerText = SORTED[0].time_stamp;
 };
 
 const recordAverageTime = () => {
   if (HISTORY_ARR.length > 1) {
-    const avcMs = HISTORY_ARR.slice().reduce((pv, cv) => pv.ms + cv.ms) / HISTORY_ARR.length;
-    average.querySelector(".timeList").innerText = getTimeformat(avcMs);
+    const totalMs = HISTORY_ARR.slice().reduce((pv, cv) => ({ ms: pv.ms + cv.ms }), { ms: 0 }).ms;
+    // console.log(totalMs);
+    average.querySelector(".timeList").innerText = getTimeformat(totalMs / HISTORY_ARR.length);
   }
 };
 
