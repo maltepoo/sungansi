@@ -140,7 +140,7 @@ const recordAverageTime = () => {
 };
 
 const getTimeformat = (givenMs) => {
-  let ms = givenMs % 60;
+  let ms = Math.floor(givenMs % 60);
   let seconds = Math.floor(givenMs / 60) % 60;
   let minutes = Math.floor(givenMs / 6000);
 
