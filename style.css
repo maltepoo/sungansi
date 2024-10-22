@@ -6,6 +6,11 @@
 }
 
 button {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+  
   font-family: "MaplestoryOTFBold";
   background: linear-gradient(#eeeeee, #9198e5);
   border: 1px solid darkblue;
@@ -41,6 +46,11 @@ container {
 }
 
 #playboard {
+  -webkit-user-select:none;
+  -moz-user-select:none;
+  -ms-user-select:none;
+  user-select:none;
+
   width: 540px;
   height: 540px;
   border: 1px solid black;

@@ -101,6 +101,7 @@ const gameStart = () => {
 const gameEnd = () => {
   console.log("== GAME END ==");
   
+  playboard.removeEventListener("click", validateNums);
   cancelAnimationFrame(recordTime);
 
   nums.forEach((n) => {
