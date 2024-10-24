@@ -47,17 +47,25 @@ container {
   margin-left: 10px;
 }
 
-#playboard {
-  -webkit-user-select:none;
-  -moz-user-select:none;
-  -ms-user-select:none;
-  user-select:none;
-
-  width: 100%;
+#content {
+  position: relative;
+  width: 50%;
   max-width: 540px;
-  max-height: 540px;
+  aspect-ratio: 1 / 1;
+}
+
+#playboard {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   border: 1px solid black;
-  margin: 0 10px;
   box-sizing: border-box;
 }
 
@@ -69,7 +77,9 @@ container {
   font-size: 3rem;
   box-sizing: border-box;
   width: 20%;
+  height: 20%;
 }
+
 
 #statusBoard {
   width: 30%;
@@ -78,6 +88,7 @@ container {
   display: flex;
   flex-direction: column;
   white-space: nowrap;
+  margin-left: 10px;
 }
 
 .title {
@@ -129,7 +140,8 @@ footer > span > a {
     padding: 10px;
   }
 
-  #playboard {
+  #content {
+    width: 100%;
     margin: 0 auto;
   }
 
@@ -155,5 +167,11 @@ footer > span > a {
     width: 100%;
     max-width: 400px;
     display: inline-block;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  #playboard td {
+    font-size: 2.2rem;
   }
 }
