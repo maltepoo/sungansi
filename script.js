@@ -66,7 +66,7 @@ const validateNums = (e) => {
   if (parseInt(num) === NEXT) {
     arr.push(NEXT);
     NEXT = NEXT + 1;
-    e.target.animate([{ opacity: "100%" }, { opacity: "0%" }, { opacity: "100%" }], { duration: 300 });
+    e.target.animate([{ background: "none" }, { background: "#9198e5" }, { background: "none" }], { duration: 300 });
   } else {
     e.target.animate([{ background: "none" }, { background: "red" }, { background: "none" }], { duration: 200 });
   }
@@ -155,6 +155,8 @@ const getTimeformat = (givenMs) => {
 resetBtn.addEventListener("click", () => {
   const conf = confirm("모든 기록이 초기화됩니다.");
   if (conf === true) {
+    gameEnd();
+
     gameTime.innerText = "00:00:00";
     document.querySelectorAll(".timeList").forEach((t) => {
       t.innerText = "00:00:00";
