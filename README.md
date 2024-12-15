@@ -14,3 +14,6 @@ https://maltepoo.github.io/sungansi/
 
 플레이 기록은 **BEST TIME**(최단기록), **AVERAGE**(평균기록), **HISTORY**(지난기록)에서 확인하실 수 있습니다.  
 플레이 기록 초기화를 원하신다면 **리셋하기 버튼**을 눌러 초기화 하실 수 있습니다.
+
+***References**
+디자인은 http://clic-clac.jp/game/shunkanshi/shunkanshi.html을 참고하여 만들었습니다(현재 이용불가).
