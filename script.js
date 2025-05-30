@@ -4,6 +4,8 @@ let BEST_TIME;
 let AVERAGE;
 let HISTORY_ARR = [];
 let milliseconds = 0;
+let rafId;
+let isRunning = false;
 
 const gameTime = document.getElementById("gameTime");
 const bestTime = document.getElementById("bestTime");
@@ -43,20 +45,17 @@ stBtn.addEventListener("click", (e) => {
 });
 
 const recordTime = () => {
-  function setTime() {
-    milliseconds += 1;
-    gameTime.innerText = getTimeformat(milliseconds);
-  }
+  if (!isRunning) return;
 
-  if (stBtn.innerText === "게임끝내기") {
-    setTime();
-    requestAnimationFrame(recordTime);
-  }
+  milliseconds += 1;
+  gameTime.innerText = getTimeformat(milliseconds);
+
+  rafId = requestAnimationFrame(recordTime);
 };
 
 const validateNums = (e) => {
   const num = e.target.dataset.num;
-  // for test : 
+  // for test :
   // const num = e.target.innerText;
 
   if (num === undefined) {
@@ -86,23 +85,25 @@ const resetData = () => {
   NEXT = 1;
   arr = [];
   milliseconds = 0;
-}
+};
 
 const gameStart = () => {
   console.log("== GAME START ==");
+  isRunning = true;
 
   resetData();
   changeNumbers();
-  requestAnimationFrame(recordTime);
+  rafId = requestAnimationFrame(recordTime);
 
   playboard.addEventListener("click", validateNums);
 };
 
 const gameEnd = () => {
   console.log("== GAME END ==");
-  
+  isRunning = false;
+
   playboard.removeEventListener("click", validateNums);
-  cancelAnimationFrame(recordTime);
+  cancelAnimationFrame(rafId);
 
   nums.forEach((n) => {
     n.classList.remove("pop");
@@ -134,8 +135,7 @@ const recordBestTime = () => {
 
 const recordAverageTime = () => {
   if (HISTORY_ARR.length > 1) {
-    const totalMs = HISTORY_ARR.slice().reduce((pv, cv) => ({ ms: pv.ms + cv.ms }), { ms: 0 }).ms;
-    // console.log(totalMs);
+    const totalMs = HISTORY_ARR.reduce((sum, entry) => sum + entry.ms, 0);
     average.querySelector(".timeList").innerText = getTimeformat(totalMs / HISTORY_ARR.length);
   }
 };
